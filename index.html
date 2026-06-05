@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Pulse - 实时心率监控</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="pulse-icon"></span>
+                <h1>Mi Pulse</h1>
+            </div>
+            <div id="status-badge" class="status-badge disconnected">未连接</div>
+        </header>
+
+        <main>
+            <section class="hero-section">
+                <div class="heart-container" id="heart-container">
+                    <svg class="heart-svg" viewBox="0 0 32 32">
+                        <path d="M16 28.5c-.5 0-1-.2-1.4-.6l-10-10C2.4 15.7 1 13 1 10c0-4.4 3.6-8 8-8 2.5 0 5 1.2 6.5 3.2C17 3.2 19.5 2 22 2c4.4 0 8 3.6 8 8 0 3-1.4 5.7-3.6 7.9l-10 10c-.4.4-.9.6-1.4.6z"/>
+                    </svg>
+                    <div class="bpm-display">
+                        <span id="bpm-value">--</span>
+                        <span class="label">BPM</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">最高心率</span>
+                    <span class="stat-value" id="max-bpm">--</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">平均心率</span>
+                    <span class="stat-value" id="avg-bpm">--</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">最低心率</span>
+                    <span class="stat-value" id="min-bpm">--</span>
+                </div>
+            </section>
+
+            <section class="chart-container">
+                <canvas id="hrChart"></canvas>
+            </section>
+        </main>
+
+        <footer class="controls">
+            <button id="connect-btn" class="primary-btn">连接小米手环</button>
+            <button id="disconnect-btn" class="secondary-btn" disabled>断开连接</button>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
