@@ -1,5 +1,5 @@
 /**
- * Mi Pulse - Mi Band 10 Pro Heart Rate Monitor
+ * Mi Band - Mi Band 10 Pro Heart Rate Monitor
  * Core Logic using Web Bluetooth API
  */
 
