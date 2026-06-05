@@ -20,6 +20,16 @@ const maxBpmDisplay = document.getElementById('max-bpm');
 const avgBpmDisplay = document.getElementById('avg-bpm');
 const minBpmDisplay = document.getElementById('min-bpm');
 const toast = document.getElementById('toast');
+const hintModal = document.getElementById('hint-modal');
+
+// Modal Utility
+function showHintModal() {
+    hintModal.classList.add('show');
+}
+
+function closeModal() {
+    hintModal.classList.remove('show');
+}
 
 // Initialize Chart
 function initChart() {
@@ -68,6 +78,7 @@ function initChart() {
 // Bluetooth Connection Logic
 async function connect() {
     try {
+        closeModal(); // Ensure modal is closed before new attempt
         showToast('正在请求蓝牙权限...');
         
         // Request device with Heart Rate Service
@@ -95,7 +106,13 @@ async function connect() {
         
     } catch (error) {
         console.error('Bluetooth Error:', error);
-        showToast(`错误: ${error.message}`);
+        
+        // Specific user-friendly handling
+        if (error.name === 'NetworkError' || error.name === 'NotFoundError' || error.name === 'NotSupportedError') {
+            showHintModal();
+        } else {
+            showToast(`错误: ${error.message}`);
+        }
     }
 }
 

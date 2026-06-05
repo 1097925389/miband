@@ -61,6 +61,27 @@
 
     <div id="toast" class="toast"></div>
 
+    <!-- Connection Hint Modal -->
+    <div id="hint-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="warning-icon">⚠️</span>
+                <h2>连接请求</h2>
+            </div>
+            <div class="modal-body">
+                <p>无法获取手环数据。请确保：</p>
+                <ul>
+                    <li>手环已开启 <strong>“心率广播”</strong> 功能</li>
+                    <li>暂时 <strong>关闭手机蓝牙</strong> 防止干扰</li>
+                    <li>手环距离电脑足够近</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal()" class="secondary-btn">确定</button>
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
