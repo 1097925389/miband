@@ -51,6 +51,20 @@
             <section class="chart-container">
                 <canvas id="hrChart"></canvas>
             </section>
+
+            <section class="history-section">
+                <div class="history-header">
+                    <h2>历史心率记录</h2>
+                    <button id="clear-history-btn" class="clear-btn" style="display: none;">清空</button>
+                </div>
+                <div class="history-list-container">
+                    <div id="history-list" class="history-list"></div>
+                    <div id="history-empty" class="history-empty">
+                        <span class="empty-icon">📊</span>
+                        <p>暂无历史记录，连接手环开始监测</p>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="controls">
